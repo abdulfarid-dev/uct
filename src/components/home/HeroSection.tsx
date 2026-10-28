@@ -12,12 +12,13 @@ const clientLogos = [
 
 export default function HeroSection() {
   return (
-    <main className="flex h-[calc(100svh-80px)] min-h-0 w-full flex-col overflow-hidden bg-white">
-      {/* HERO VIDEO: takes all remaining space */}
+    <main className="flex h-[calc(100svh-78px)] min-h-0 w-full flex-col overflow-hidden bg-white">
+      {/* Hero video with fixed overlay heading */}
       <section
-        aria-label="Industrial IoT hero video"
-        className="relative min-h-0 w-full flex-1 overflow-hidden bg-black"
+        aria-label="Industrial IoT introduction"
+        className="relative min-h-0 w-full flex-1 overflow-hidden bg-slate-950"
       >
+        {/* Background video */}
         <video
           className="absolute inset-0 h-full w-full object-cover"
           autoPlay
@@ -29,9 +30,26 @@ export default function HeroSection() {
         >
           <source src="/videos/industrial-hero.mp4" type="video/mp4" />
         </video>
+
+        {/* Dark overlay for heading readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/75 via-slate-950/40 to-slate-950/10" />
+
+        {/* Fixed heading overlay — does not move with the video */}
+        <div className="absolute inset-0 flex items-center">
+          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-16">
+            <div className="max-w-5xl">
+              <h1 className="text-3xl font-bold leading-[1.15] tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl xl:text-[68px]">
+                Connecting{" "}
+                <span className="text-[#65D6C5]">Industries.</span>
+                <br />
+                Simplifying Monitoring.
+              </h1>
+            </div>
+          </div>
+        </div>
       </section>
 
-      {/* CLIENT LOGOS: always visible at the bottom */}
+      {/* Client logos — visible in the same viewport */}
       <section
         id="industries"
         aria-label="Our valued clients"
