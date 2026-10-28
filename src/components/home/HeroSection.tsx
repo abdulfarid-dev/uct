@@ -14,14 +14,14 @@ const clientLogos = [
 
 export default function HeroSection() {
   return (
-    <main className="flex h-[calc(100svh-78px)] min-h-0 w-full flex-col overflow-hidden bg-white">
+    <main className="flex h-[calc(100svh-72px)] min-h-0 w-full flex-col overflow-hidden bg-white lg:h-[calc(100svh-78px)]">
       {/* HERO VIDEO */}
       <section
         aria-label="Industrial IoT introduction"
         className="relative min-h-0 w-full flex-1 overflow-hidden bg-slate-950"
       >
         <video
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-contain md:object-cover"
           autoPlay
           muted
           loop
@@ -32,14 +32,14 @@ export default function HeroSection() {
           <source src="/videos/industrial-hero.mp4" type="video/mp4" />
         </video>
 
-        {/* Dark overlay for readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/75 via-slate-950/45 to-slate-950/15" />
+        {/* Readability overlay */}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-slate-950/65 via-slate-950/30 to-transparent" />
 
-        {/* Hero Content */}
+        {/* Hero content */}
         <div className="absolute inset-0 flex items-center">
-          <div className="mx-auto w-full max-w-[1440px] px-6 sm:px-10 lg:px-16">
+          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-16">
             <div className="max-w-4xl">
-              <h1 className="text-[30px] font-semibold leading-[1.2] tracking-[-0.035em] text-white sm:text-4xl md:text-[44px] lg:text-[52px]">
+              <h1 className="text-[25px] font-semibold leading-[1.2] tracking-[-0.03em] text-white sm:text-3xl md:text-[44px] lg:text-[52px]">
                 Connecting Industries.
                 <br />
                 <span className="font-bold text-[#FDE047]">
@@ -47,17 +47,15 @@ export default function HeroSection() {
                 </span>
               </h1>
 
-              {/* Learn More Button */}
-              <div className="mt-6 sm:mt-7">
+              <div className="mt-5 sm:mt-7">
                 <Link
                   href="/about-us"
-                  className="group inline-flex h-11 items-center justify-center gap-2 rounded-md bg-[#FDE047] px-6 text-sm font-semibold text-slate-950 shadow-md transition-all duration-200 hover:-translate-y-0.5 hover:bg-yellow-300 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
+                  className="group inline-flex h-10 items-center justify-center gap-2 rounded-md bg-[#FDE047] px-5 text-sm font-semibold text-slate-950 shadow-md transition hover:bg-yellow-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-300 sm:h-11 sm:px-6"
                 >
                   Learn More
                   <ArrowRight
                     size={17}
-                    strokeWidth={2}
-                    className="transition-transform duration-200 group-hover:translate-x-1"
+                    className="transition-transform group-hover:translate-x-1"
                   />
                 </Link>
               </div>
@@ -70,18 +68,18 @@ export default function HeroSection() {
       <section
         id="industries"
         aria-label="Our valued clients"
-        className="flex h-[88px] shrink-0 items-center border-t border-slate-200 bg-white px-3 sm:h-[100px] sm:px-6 lg:px-10"
+        className="flex h-[78px] shrink-0 items-center border-t border-slate-200 bg-white px-2 sm:h-[100px] sm:px-6 lg:px-10"
       >
         <div className="mx-auto w-full max-w-7xl">
-          <h2 className="mb-2 text-center text-[9px] font-semibold uppercase tracking-[0.18em] text-slate-500 sm:mb-3 sm:text-[11px]">
+          <h2 className="mb-2 text-center text-[9px] font-semibold uppercase tracking-[0.15em] text-slate-500 sm:mb-3 sm:text-[11px]">
             Our Valued Clients
           </h2>
 
-          <div className="grid grid-cols-7 items-center gap-2 sm:gap-5 lg:gap-8">
+          <div className="grid grid-cols-7 items-center gap-1 sm:gap-5 lg:gap-8">
             {clientLogos.map((client) => (
               <div
                 key={client.name}
-                className="relative h-6 w-full sm:h-8 lg:h-9"
+                className="relative h-5 min-w-0 w-full sm:h-8 lg:h-9"
               >
                 <Image
                   src={client.src}
